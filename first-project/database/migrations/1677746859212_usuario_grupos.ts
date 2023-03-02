@@ -4,7 +4,8 @@ export default class UsuarioGrupos extends BaseSchema {
   protected tableName = 'usuario_grupos'
 
   public async up () {
-    this.schema.createTableIfNotExists(this.tableName, (table) => {
+    this.schema.createTable(this.tableName, (table) => {
+      table.increments('id').primary();
       table.integer('codigo_usuario').unsigned().index('u_g_codigo_usuario' );
       table .integer('codigo_grupo').unsigned().index('u_g_codigo_grupo');
       table.date('fecha_inicio').notNullable();
